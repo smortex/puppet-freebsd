@@ -21,6 +21,8 @@
 #   Set the MTU of the physical interface.
 # [*is_alias*]
 #   Aliases are addresses in addition to the primary (bool)
+# [*description*]
+#   An interface label
 #
 # == Examples
 #
@@ -39,12 +41,12 @@
 # Copyright 2013 Puppet Labs
 #
 define freebsd::network::interface (
-  $address   = '',
-  $v6address = '',
-  $mtu       = '',
-  $is_alias  = false
+  $address     = '',
+  $v6address   = '',
+  $mtu         = '',
+  $is_alias    = false,
+  $description = undef,
 ) {
-
 
   # We will only be working with rc.conf here
   Shell_config { file => '/etc/rc.conf' }
@@ -52,6 +54,10 @@ define freebsd::network::interface (
   # Set the mtu string to be used in rc.conf if we've set it
   if ( $mtu != '' ) {
     $mtu_string = " mtu ${mtu}"
+  }
+
+  if $description {
+    $description_string += " description \'${description}\'"
   }
 
   # When the addresses being assigned are aliases, they should not have the
@@ -70,7 +76,7 @@ define freebsd::network::interface (
     if $address != '' {
       shell_config { "ifconfig ${name}":
         key   => "ifconfig_${name}",
-        value => "${inet_string}${address}${mtu_string}",
+        value => "${inet_string}${address}${mtu_string}${description_string}",
       }
     }
 
@@ -78,7 +84,7 @@ define freebsd::network::interface (
     if $v6address != '' {
       shell_config { "v6ifconfig ${name}":
         key   => "ifconfig_${name}_ipv6",
-        value => "${inet6_string}${v6address}${mtu_string}",
+        value => "${inet6_string}${v6address}${mtu_string}${description_string}",
       }
     }
 
