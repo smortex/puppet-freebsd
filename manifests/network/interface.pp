@@ -1,20 +1,49 @@
+# == Class: freebsd::src
+#
+# This code is meant to configure a *physical* interface on a FreeBSD system.
+# You should be able to set the v4 and v6 addresses, as well as set the MTU
+# for a given interface.
+#
+# You may also wish to only set the MTU and bring up the interface, which can
+# be useful when you want ot assign a given interface to a lagg, but also
+# want a custom MTU.
+#
+# An option is provided here for $alias.  This is used to add virtual
+# addresses to a physicial interface.
+#
+# == Paramaters
+#
+# [*address*]
+#   The IPv4 address to assign to the interface (CIDR notation).
+# [*v6address*]
+#   The IPv6 address to assign to the interface (Prefix Notation).
+# [*mtu*]
+#   Set the MTU of the physical interface.
+# [*is_alias*]
+#   Aliases are addresses in addition to the primary (bool)
+#
+# == Examples
+#
+#  class { "freebsd::interface":
+#    address   => '10.127.0.1/30',
+#    v6address => '2001:dead:beef:1::/64',
+#    mtu       => '9000',
+#  }
+#
+# == Authors
+#
+# Zach Leslie <xaque208@gmail.com>
+#
+# == Copyright
+#
+# Copyright 2013 Puppet Labs
+#
 define freebsd::network::interface (
   $address   = '',
   $v6address = '',
   $mtu       = '',
   $is_alias  = false
 ) {
-
-  # This code is meant to configure a *physical* interface on a FreeBSD system.
-  # You should be able to set the v4 and v6 addresses, as well as set the MTU
-  # for a given interface.
-
-  # You may also wish to only set the MTU and bring up the interface, which can
-  # be useful when you want ot assign a given interface to a lagg, but also
-  # want a custom MTU.
-
-  # We also provide an option here for $alias.  This is used to add virtual
-  # addresses to a physicial interface.
 
 
   # We will only be working with rc.conf here

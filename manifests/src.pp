@@ -1,6 +1,29 @@
+# == Class: freebsd::src
+#
+# Installs the FreeBSD source from Subversion
+#
+# == Paramaters
+#
+# [*dir*]
+#   The directory to store the soruce
+# [*release*]
+#   The version of FreeBSD to checkout
+#
+# == Examples
+#
+#  class { "freebsd::src": }
+#
+# == Authors
+#
+# Zach Leslie <xaque208@gmail.com>
+#
+# == Copyright
+#
+# Copyright 2013 Puppet Labs
+#
 class freebsd::src (
   $dir     = '/usr/src',
-  $release = '9.1.0',
+  $release = '9.2.0',
 ) {
 
   package { "devel/subversion": }

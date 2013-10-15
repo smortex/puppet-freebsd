@@ -1,4 +1,32 @@
+# == Class: freebsd::network
+#
 # Configures various network paramaters on a FreeBSD system.
+#
+# == Paramaters
+#
+# [*gateway_enable*]
+#   Route IPv4 traffic between interfaces?
+# [*ipv6*]
+#   Enable IPv6?
+# [*ipv6_gateway_enable*]
+#   Route IPv6 traffic between interfaces?
+# [*defaultrouter*]
+#   Sets the default IPv4 router for this machine.
+# [*ipv6_defaultrouter*]
+#   Sets the default IPv6 router for this machine.
+#
+# == Examples
+#
+#  class { "freebsd::network": }
+#
+# == Authors
+#
+# Zach Leslie <xaque208@gmail.com>
+#
+# == Copyright
+#
+# Copyright 2013 Puppet Labs
+#
 class freebsd::network (
   $gateway_enable      = false,
   $ipv6                = true,
