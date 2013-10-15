@@ -10,7 +10,7 @@ define freebsd::network::lagg (
 
   # Set the MTU of the LAGG interface.
   if ($mtu != '') {
-    os::freebsd::network::interface { $laggports: mtu => $mtu; }
+    freebsd::network::interface { $laggports: mtu => $mtu; }
   }
 
   # Build up the lagg interface string here for simplicity
