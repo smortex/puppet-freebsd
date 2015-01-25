@@ -1,10 +1,17 @@
 define freebsd::network::carp (
-  $password = '',
-  $advbase  = '',
-  $advskew  = '',
+  $password      = '',
+  $advbase       = '',
+  $advskew       = '',
   $vhid,
   $address         # CIDR
+  $do_carp_setup = false,
 ) {
+
+  # if do_carp_setup is true, add carp_load="YES" to /bood/loader.conf
+  # and run kldload carp
+  if $do_carp_setup {
+    include carp_setup
+  }
 
   # The following adds teh necessary configuration for a carp interface to
   # rc.conf.  Eventually this could manage the interface creation and
