@@ -2,6 +2,15 @@
 
 This module is a compilation of types and facts that make working with FreeBSD a joy.
 
+    NOTE: This module is not much maintained anymore, and I'm considering it
+    deprecated.  BSD efforts are moving to a more general BSD module located
+    here:
+
+[xaque208/puppet-bsd](https://github.com/xaque208/puppet-bsd)
+
+    Please direct efforts/issues/pull requests toward the BSD module instead of
+    to the FreeBSD module.
+
 ## Classes
 
 ### freebsd::login
