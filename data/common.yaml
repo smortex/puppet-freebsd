@@ -1,0 +1,4 @@
+---
+lookup_options:
+  freebsd::login::classes:
+    merge: "deep"
