@@ -12,7 +12,12 @@
 <% @classes.each do |class_name, values_hash| %>
 <%= class_name %>:\
 	<%=
-values_hash.map do |key, value|
+capabilities = values_hash.to_a
+if n = capabilities.find_index { |x| x[0] == 'tc' }
+  tc = capabilities.slice!(n)
+  capabilities << tc
+end
+capabilities.map do |key, value|
   case value
     when true
       ":#{key}:"
