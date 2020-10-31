@@ -4,7 +4,8 @@ freebsd::login::classes:
     passwd_format: sha512
     copyright: /etc/COPYRIGHT
     welcome: /etc/motd
-    setenv: MAIL=/var/mail/$,BLOCKSIZE=K
+    setenv: BLOCKSIZE=K
+    mail: /var/mail/$
     path: /sbin /bin /usr/sbin /usr/bin /usr/local/sbin /usr/local/bin ~/bin
     nologin: /var/run/nologin
     cputime: unlimited
@@ -32,6 +33,7 @@ freebsd::login::classes:
   staff:
     tc: default
   daemon:
+    mail: false
     memorylocked: 128M
     tc: default
   news:
