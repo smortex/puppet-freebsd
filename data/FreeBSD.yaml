@@ -23,6 +23,7 @@ freebsd::login::classes:
     pseudoterminals: unlimited
     kqueues: unlimited
     umtxp: unlimited
+    pipebuf: unlimited
     priority: "0"
     ignoretime: false
     umask: "022"
