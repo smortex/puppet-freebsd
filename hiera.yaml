@@ -6,6 +6,8 @@ defaults:
   data_hash: yaml_data
 
 hierarchy:
+  - name: "Full version"
+    path: "%{facts.os.name}-%{facts.os.release.major}.%{facts.os.release.minor}.yaml"
   - name: "Major version"
     path: "%{facts.os.name}-%{facts.os.release.major}.yaml"
   - name: 'Distribution name'

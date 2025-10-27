@@ -1,0 +1,4 @@
+---
+freebsd::login::classes:
+  default:
+    ignoretime: false
