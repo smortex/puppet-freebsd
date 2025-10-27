@@ -25,7 +25,6 @@ freebsd::login::classes:
     umtxp: unlimited
     pipebuf: unlimited
     priority: "0"
-    ignoretime: false
     umask: "022"
   standard:
     tc: default
