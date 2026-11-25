@@ -2,8 +2,7 @@
 freebsd::login::classes:
   default:
     passwd_format: sha512
-    copyright: /etc/COPYRIGHT
-    welcome: /etc/motd
+    welcome: /var/run/motd
     setenv: BLOCKSIZE=K
     mail: /var/mail/$
     path: /sbin /bin /usr/sbin /usr/bin /usr/local/sbin /usr/local/bin ~/bin
@@ -11,7 +10,7 @@ freebsd::login::classes:
     cputime: unlimited
     datasize: unlimited
     stacksize: unlimited
-    memorylocked: 64K
+    memorylocked: 256K
     memoryuse: unlimited
     filesize: unlimited
     coredumpsize: unlimited

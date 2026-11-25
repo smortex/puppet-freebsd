@@ -1,4 +1,7 @@
 ---
 freebsd::login::classes:
   default:
+    copyright: /etc/COPYRIGHT
     ignoretim: false
+    memorylocked: 64K
+    welcome: /etc/motd

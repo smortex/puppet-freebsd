@@ -1,0 +1,6 @@
+---
+freebsd::login::classes:
+  default:
+    copyright: /etc/COPYRIGHT
+    memorylocked: 64K
+    welcome: /etc/motd
