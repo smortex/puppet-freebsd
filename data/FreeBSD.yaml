@@ -32,6 +32,7 @@ freebsd::login::classes:
   staff:
     tc: default
   daemon:
+    path: /sbin /bin /usr/sbin /usr/bin /usr/local/sbin /usr/local/bin
     mail: false
     memorylocked: 128M
     tc: default
